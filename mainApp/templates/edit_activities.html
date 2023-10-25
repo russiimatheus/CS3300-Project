@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... your usual head elements here ... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Activity</title>
+</head>
+<body>
+    <h1>Edit Activity</h1>
+
+    <form action="{% url 'edit_activity' activity.id %}" method="post">
+        {% csrf_token %}
+
+        <label for="name">Activity Name:</label>
+        <input type="text" id="name" name="name" value="{{ activity.name }}" required><br><br>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" value="{{ activity.date }}" required><br><br>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" value="{{ activity.time }}" required><br><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description">{{ activity.description }}</textarea><br><br>
+
+        <input type="submit" value="Save Changes">
+    </form>
+</body>
+</html>

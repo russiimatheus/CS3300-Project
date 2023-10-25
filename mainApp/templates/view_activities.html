@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Activities</title>
+    <style>
+        /* Button styling */
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Activities List</h1>
+
+    <!-- Button for creating activities -->
+    <button onclick="location.href='{% url 'create_activity' %}'">Create</button>
+
+    <!-- Display the activities in a table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for activity in activities %}
+            <tr>
+                <td>{{ activity.name }}</td>
+                <td>{{ activity.date }}</td>
+                <td>{{ activity.time }}</td>
+                <td>{{ activity.description }}</td>
+                <td>
+                    <a href="{% url 'edit_activity' activity.id %}">Edit</a> |  <!-- Link to edit the activity -->
+                    <a href="{% url 'delete_activity' activity.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Activity</title>
+</head>
+<body>
+    <h1>Create Activity</h1>
+    
+    <form action="{% url 'create_activity' %}" method="post">
+
+        {% csrf_token %}
+
+        <label for="activity_name">Activity Name:</label>
+        <input type="text" id="activity_name" name="activity_name" required><br><br>
+
+        <label for="activity_date">Date:</label>
+        <input type="date" id="activity_date" name="activity_date" required><br><br>
+
+        <label for="activity_time">Time:</label>
+        <input type="time" id="activity_time" name="activity_time" required><br><br>
+
+        <label for="activity_description">Description:</label>
+        <textarea id="activity_description" name="activity_description"></textarea><br><br>
+
+        <input type="submit" value="Create">
+    </form>
+
+</body>
+</html>
