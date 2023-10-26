@@ -54,6 +54,7 @@
                 <th>Date</th>
                 <th>Time</th>
                 <th>Description</th>
+                <th>Instructor</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -64,6 +65,7 @@
                 <td>{{ activity.date }}</td>
                 <td>{{ activity.time }}</td>
                 <td>{{ activity.description }}</td>
+                <td>{{ activity.instructor }}</td>
                 <td>
                     <a href="{% url 'edit_activity' activity.id %}">Edit</a> |  <!-- Link to edit the activity -->
                     <a href="{% url 'delete_activity' activity.id %}">Delete</a>

@@ -9,7 +9,6 @@
     <h1>Create Activity</h1>
     
     <form action="{% url 'create_activity' %}" method="post">
-
         {% csrf_token %}
 
         <label for="activity_name">Activity Name:</label>
@@ -24,8 +23,15 @@
         <label for="activity_description">Description:</label>
         <textarea id="activity_description" name="activity_description"></textarea><br><br>
 
+        <label for="instructor">Instructor:</label>
+        <select id="instructor" name="instructor" required>
+            <option value="" selected hidden></option>
+            <option value="Matheus">Matheus</option>
+            <option value="Matias">Matias</option>
+            <option value="Matheuses">Matheuses</option>
+        </select><br><br>
+
         <input type="submit" value="Create">
     </form>
-
 </body>
 </html>

@@ -16,8 +16,9 @@ def create_activity(request):
         activity_date = request.POST['activity_date']
         activity_time = request.POST['activity_time']
         activity_description = request.POST.get('activity_description', '')
+        activity_instructor = request.POST['instructor']
 
-        activity = Activity(name=activity_name, date=activity_date, time=activity_time, description=activity_description)
+        activity = Activity(name=activity_name, date=activity_date, time=activity_time, description=activity_description, instructor=activity_instructor)
         activity.save()
 
         return redirect('view_activities')

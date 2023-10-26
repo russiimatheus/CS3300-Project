@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- ... your usual head elements here ... -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Activity</title>
@@ -23,6 +22,14 @@
 
         <label for="description">Description:</label>
         <textarea id="description" name="description">{{ activity.description }}</textarea><br><br>
+
+        <label for="instructor">Instructor:</label>
+        <select id="instructor" name="instructor" required>
+            <option value="" selected hidden></option>
+            <option value="Matheus" {% if activity.instructor == "Matheus" %}selected{% endif %}>Matheus</option>
+            <option value="Matias" {% if activity.instructor == "Matias" %}selected{% endif %}>Matias</option>
+            <option value="Matheuses" {% if activity.instructor == "Matheuses" %}selected{% endif %}>Matheuses</option>
+        </select><br><br>
 
         <input type="submit" value="Save Changes">
     </form>
