@@ -8,12 +8,12 @@
         body {
             background-image: url('https://empathicparentingcounseling.com/wp-content/uploads/2023/08/teaching-toddlers-to-play-soccer.jpg');
             background-size: cover;
-            color: white; /* For better text visibility */
+            color: white; 
+            font-size: 18px; 
         }
 
-        /* Styling for the form */
         form {
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for form */
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 10px;
             width: 80%;
@@ -22,16 +22,18 @@
 
         label {
             display: block;
+            margin-bottom: 5px;
         }
 
         input, textarea, select {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
+            padding: 12px;
+            margin-bottom: 12px;
             border-radius: 4px;
             border: 1px solid white;
-            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
-            color: white; /* White text color for inputs and select */
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            font-size: 16px; 
         }
 
         input[type="submit"] {
@@ -40,7 +42,8 @@
             border: none;
             cursor: pointer;
             transition: background-color 0.3s;
-            width: auto;
+            padding: 12px 20px; 
+            font-size: 16px; 
         }
 
         input[type="submit"]:hover {
@@ -48,11 +51,33 @@
         }
 
         h1 {
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5); 
+            padding: 15px;
             text-align: center;
             border-radius: 5px;
+            font-size: 24px; 
         }
+
+        /* Change the appearance of calendar and time icons to white */
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-inner-spin-button,
+        input[type="time"]::-webkit-clear-button,
+        input[type="time"]::-webkit-outer-spin-button,
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);  
+            opacity: 0.7;  
+        }
+
+        input[type="time"]::-webkit-clear-button {
+            display: none;
+        }
+
+        input[type="date"]::-moz-calendar-picker-indicator,
+        input[type="time"]::-moz-time-picker-indicator {
+            filter: invert(1);  
+            opacity: 0.7;  
+        }
+
     </style>
 </head>
 <body>
@@ -81,7 +106,7 @@
             <option value="Matheuses">Matheuses</option>
         </select><br><br>
 
-        <input type="submit" value="Create">
+        <input type="submit" value="Create New Activity">
     </form>
 </body>
 </html>

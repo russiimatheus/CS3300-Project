@@ -8,39 +8,40 @@
         body {
             background-image: url('https://hips.hearstapps.com/hmg-prod/images/things-to-do-at-home-family-kids-puzzle-1586982971.jpg?crop=1.00xw:0.756xh;0,0.0611xh&resize=640:*');
             background-size: cover;
-            color: white; /* For better text visibility */
+            color: white;
+            font-size: 18px; /* Slightly increased base font-size */
         }
 
-        /* Styling for the form */
         form {
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for form */
-            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 25px; /* Slightly increased padding */
             border-radius: 10px;
             width: 80%;
-            margin: 0 auto;
+            margin: 20px auto;
         }
 
         label {
             display: block;
+            margin-bottom: 6px;
         }
 
         input, textarea, select {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
+            padding: 11px; 
+            margin-bottom: 15px;
             border-radius: 4px;
             border: 1px solid white;
-            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+            background-color: rgba(0, 0, 0, 0.6);
             color: white;
+            font-size: 17px;
             appearance: none;
-            -webkit-appearance: none; /* For Safari */
-            -moz-appearance: none; /* For Firefox */
+            -webkit-appearance: none; 
+            -moz-appearance: none;
         }
 
-        /* Add white arrows for the select dropdown */
         select {
             background: rgba(0, 0, 0, 0.6) url(data:image/svg+xml;utf8,<svg fill='white' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>) no-repeat right 0.75rem center/10px 10px;
-            padding-right: 2rem; /* Make space for the icon */
+            padding-right: 2.2rem; 
         }
 
         input[type="submit"] {
@@ -48,20 +49,41 @@
             color: black;
             border: none;
             cursor: pointer;
+            padding: 11px 20px;
+            font-size: 18px;
             transition: background-color 0.3s;
             width: auto;
         }
 
-        input[type="submit"]:hover {
-            background-color: #2980b9;
-        }
-
         h1 {
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 12px;
             text-align: center;
             border-radius: 5px;
+            font-size: 28px;
         }
+
+        /* Webkit browsers like Chrome and Safari */
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="time"]::-webkit-inner-spin-button,
+        input[type="time"]::-webkit-clear-button,
+        input[type="time"]::-webkit-outer-spin-button,
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            opacity: 0.7;
+        }
+
+        input[type="time"]::-webkit-clear-button {
+            display: none;
+        }
+
+        /* Mozilla based browsers */
+        input[type="date"]::-moz-calendar-picker-indicator,
+        input[type="time"]::-moz-time-picker-indicator {
+            filter: invert(1);
+            opacity: 0.7;
+        }
+        
     </style>
 </head>
 <body>
@@ -69,27 +91,22 @@
     
     <form action="{% url 'edit_activity' activity.id %}" method="post">
         {% csrf_token %}
-
         <label for="name">Activity Name:</label>
         <input type="text" id="name" name="name" value="{{ activity.name }}" required>
-
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" value="{{ activity.date }}" required>
-
         <label for="time">Time:</label>
         <input type="time" id="time" name="time" value="{{ activity.time }}" required>
-
         <label for="description">Description:</label>
-        <textarea id="description" name="description">{{ activity.description }}</textarea>
-
+        <textarea id="description" name="description" rows="4">{{ activity.description }}</textarea>
         <label for="instructor">Instructor:</label>
         <select id="instructor" name="instructor" required>
             <option value="" selected hidden></option>
             <option value="Matheus" {% if activity.instructor == "Matheus" %}selected{% endif %}>Matheus</option>
             <option value="Matias" {% if activity.instructor == "Matias" %}selected{% endif %}>Matias</option>
             <option value="Matheuses" {% if activity.instructor == "Matheuses" %}selected{% endif %}>Matheuses</option>
-        </select><br><br>
-
+        </select>
+        <br><br>
         <input type="submit" value="Save Changes">
     </form>
 </body>

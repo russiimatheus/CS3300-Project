@@ -8,24 +8,27 @@
         body {
             background-image: url('https://i.pinimg.com/736x/6a/73/02/6a730250f0674770954cbb9778b9f4f7.jpg');
             background-size: cover;
-            color: black; /* Changing text color for visibility */
+            color: black; 
+            font-size: 20px;
         }
 
-        /* Button styling */
+        /* Centralized button styling */
+        .center-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
         button {
             background-color: #3498db;
             color: white;
-            padding: 10px 20px;
+            padding: 15px 25px; 
             margin: 10px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 20px;
             transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #2980b9;
         }
 
         /* Table Styling */
@@ -33,7 +36,7 @@
             width: 100%;
             margin-top: 20px;
             border-collapse: collapse;
-            background-color: rgba(255, 255, 255, 0.7); /* Adding a semi-transparent background for table for readability */
+            background-color: rgba(255, 255, 255, 0.7);
         }
 
         table, th, td {
@@ -41,23 +44,27 @@
         }
 
         th, td {
-            padding: 8px 12px;
+            padding: 12px 18px; 
             text-align: left;
-            color: black; /* Changing text color of table for visibility */
+            color: black; 
+            font-size: 19px;
         }
 
         h1 {
-            background-color: rgba(255, 255, 255, 0.7); /* Adding a semi-transparent background for readability */
-            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 12px;
             border-radius: 5px;
+            font-size: 32px;
         }
     </style>
 </head>
 <body>
     <h1>Activities List</h1>
 
-    <!-- Button for creating activities -->
-    <button onclick="location.href='{% url 'create_activity' %}'">Create</button>
+    <!-- Centralized button for creating activities -->
+    <div class="center-button">
+        <button onclick="location.href='{% url 'create_activity' %}'">Create New Activity</button>
+    </div>
 
     <!-- Display the activities in a table -->
     <table>
@@ -80,7 +87,7 @@
                 <td>{{ activity.description }}</td>
                 <td>{{ activity.instructor }}</td>
                 <td>
-                    <a href="{% url 'edit_activity' activity.id %}">Edit</a> |  <!-- Link to edit the activity -->
+                    <a href="{% url 'edit_activity' activity.id %}">Edit</a> |  
                     <a href="{% url 'delete_activity' activity.id %}">Delete</a>
                 </td>
             </tr>
