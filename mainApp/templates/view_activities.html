@@ -12,7 +12,6 @@
             font-size: 20px;
         }
 
-        /* Centralized button styling */
         .center-button {
             display: flex;
             justify-content: center;
@@ -31,7 +30,6 @@
             transition: background-color 0.3s;
         }
 
-        /* Table Styling */
         table {
             width: 100%;
             margin-top: 20px;
@@ -61,12 +59,12 @@
 <body>
     <h1>Activities List</h1>
 
-    <!-- Centralized button for creating activities -->
-    <div class="center-button">
-        <button onclick="location.href='{% url 'create_activity' %}'">Create New Activity</button>
-    </div>
+    {% if user.is_authenticated %}
+        <div class="center-button">
+            <button onclick="location.href='{% url 'create_activity' %}'">Create New Activity</button>
+        </div>
+    {% endif %}
 
-    <!-- Display the activities in a table -->
     <table>
         <thead>
             <tr>
@@ -87,8 +85,12 @@
                 <td>{{ activity.description }}</td>
                 <td>{{ activity.instructor }}</td>
                 <td>
-                    <a href="{% url 'edit_activity' activity.id %}">Edit</a> |  
-                    <a href="{% url 'delete_activity' activity.id %}">Delete</a>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'edit_activity' activity.id %}">Edit</a> |  
+                        <a href="{% url 'delete_activity' activity.id %}">Delete</a>
+                    {% else %}
+                        View Only
+                    {% endif %}
                 </td>
             </tr>
             {% endfor %}

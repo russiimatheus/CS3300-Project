@@ -33,7 +33,6 @@ INSTALLED_APPS = [
     'mainApp',   # Adding the mainApp to the installed apps
 ]
 
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -92,13 +91,9 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-# Added for serving static files in development
-# ... [The rest of your settings remain unchanged]
-
-# Update this line:
 STATICFILES_DIRS = [BASE_DIR / "mainApp" / "static",]
 
-# ... [The rest of your settings remain unchanged]
-    
-
+# Add the following line to specify the redirect URL after login
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
