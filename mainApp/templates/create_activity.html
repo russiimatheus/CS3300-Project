@@ -1,15 +1,16 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Activity</title>
+    <title>{% trans "Create Activity" %}</title>
     <style>
         body {
             background-image: url('https://empathicparentingcounseling.com/wp-content/uploads/2023/08/teaching-toddlers-to-play-soccer.jpg');
             background-size: cover;
-            color: white; 
-            font-size: 18px; 
+            color: white;
+            font-size: 18px;
         }
 
         form {
@@ -33,7 +34,7 @@
             border: 1px solid white;
             background-color: rgba(0, 0, 0, 0.6);
             color: white;
-            font-size: 16px; 
+            font-size: 16px;
         }
 
         input[type="submit"] {
@@ -42,8 +43,8 @@
             border: none;
             cursor: pointer;
             transition: background-color 0.3s;
-            padding: 12px 20px; 
-            font-size: 16px; 
+            padding: 12px 20px;
+            font-size: 16px;
         }
 
         input[type="submit"]:hover {
@@ -51,11 +52,11 @@
         }
 
         h1 {
-            background-color: rgba(0, 0, 0, 0.5); 
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 15px;
             text-align: center;
             border-radius: 5px;
-            font-size: 24px; 
+            font-size: 24px;
         }
 
         /* Change the appearance of calendar and time icons to white */
@@ -64,8 +65,8 @@
         input[type="time"]::-webkit-clear-button,
         input[type="time"]::-webkit-outer-spin-button,
         input[type="time"]::-webkit-calendar-picker-indicator {
-            filter: invert(1);  
-            opacity: 0.7;  
+            filter: invert(1);
+            opacity: 0.7;
         }
 
         input[type="time"]::-webkit-clear-button {
@@ -74,39 +75,38 @@
 
         input[type="date"]::-moz-calendar-picker-indicator,
         input[type="time"]::-moz-time-picker-indicator {
-            filter: invert(1);  
-            opacity: 0.7;  
+            filter: invert(1);
+            opacity: 0.7;
         }
-
     </style>
 </head>
 <body>
-    <h1>Create Activity</h1>
+    <h1>{% trans "Create Activity" %}</h1>
     
     <form action="{% url 'create_activity' %}" method="post">
         {% csrf_token %}
 
-        <label for="activity_name">Activity Name:</label>
+        <label for="activity_name">{% trans "Activity Name:" %}</label>
         <input type="text" id="activity_name" name="activity_name" required>
 
-        <label for="activity_date">Date:</label>
+        <label for="activity_date">{% trans "Date:" %}</label>
         <input type="date" id="activity_date" name="activity_date" required>
 
-        <label for="activity_time">Time:</label>
+        <label for="activity_time">{% trans "Time:" %}</label>
         <input type="time" id="activity_time" name="activity_time" required>
 
-        <label for="activity_description">Description:</label>
+        <label for="activity_description">{% trans "Description:" %}</label>
         <textarea id="activity_description" name="activity_description"></textarea>
 
-        <label for="instructor">Instructor:</label>
+        <label for="instructor">{% trans "Instructor:" %}</label>
         <select id="instructor" name="instructor" required>
             <option value="" selected hidden></option>
-            <option value="Matheus">Matheus</option>
-            <option value="Matias">Matias</option>
-            <option value="Matheuses">Matheuses</option>
+            <option value="Matheus">{% trans "Matheus" %}</option>
+            <option value="Matias">{% trans "Matias" %}</option>
+            <option value="Matheuses">{% trans "Matheuses" %}</option>
         </select><br><br>
 
-        <input type="submit" value="Create New Activity">
+        <input type="submit" value="{% trans 'Create New Activity' %}">
     </form>
 </body>
 </html>

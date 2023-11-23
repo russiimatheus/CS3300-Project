@@ -1,10 +1,11 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>{% trans "Login" %}</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -76,10 +77,10 @@
             {% endif %}
         </div>
         {% if invalid_login %}
-            <div class="error">Wrong username or password</div>
+            <div class="error">{% trans "Wrong username or password" %}</div>
         {% endif %}
-        <button type="submit">Login</button>
-        <p>Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
+        <button type="submit">{% trans "Login" %}</button>
+        <p>{% trans "Don't have an account?" %} <a href="{% url 'register' %}">{% trans "Register here" %}</a>.</p>
     </form>
 </body>
 </html>

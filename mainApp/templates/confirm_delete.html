@@ -1,19 +1,19 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm Delete</title>
+    <title>{% trans "Confirm Delete" %}</title>
     <style>
         body {
             background-image: url('https://www.verywellfamily.com/thmb/RWwhGTriwfx8r_WNych5AlJ7PRM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/EB4532-002-56a6f1785f9b58b7d0e59b18.jpg');
             background-size: cover;
-            color: white; /* For better text visibility */
+            color: white;
         }
 
-        /* Styling for the form */
         form {
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for form */
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 10px;
             width: 80%;
@@ -22,7 +22,7 @@
         }
 
         input[type="submit"] {
-            background-color: #e74c3c; /* Red color for the delete confirmation */
+            background-color: #e74c3c;
             color: white;
             border: none;
             padding: 10px 20px;
@@ -39,7 +39,7 @@
         a {
             text-decoration: none;
             padding: 10px 20px;
-            background-color: #3498db; /* Blue color for cancel button */
+            background-color: #3498db;
             color: white;
             border-radius: 4px;
         }
@@ -49,7 +49,7 @@
         }
 
         h1 {
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            background-color: rgba(0, 0, 0, 0.5);
             padding: 10px;
             text-align: center;
             border-radius: 5px;
@@ -57,12 +57,12 @@
     </style>
 </head>
 <body>
-    <h1>Are you sure you want to delete "{{ activity.name }}"?</h1>
+    <h1>{% trans "Are you sure you want to delete" %} "{{ activity.name }}"?</h1>
     
     <form action="{% url 'delete_activity' activity.id %}" method="post">
         {% csrf_token %}
-        <input type="submit" value="Confirm">
-        <a href="{% url 'view_activities' %}">Cancel</a>
+        <input type="submit" value="{% trans "Confirm" %}">
+        <a href="{% url 'view_activities' %}">{% trans "Cancel" %}</a>
     </form>
 </body>
 </html>

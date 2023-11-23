@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os  # Import os module
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mainApp',   # Adding the mainApp to the installed apps
+    'mainApp',  # Adding the mainApp to the installed apps
 ]
 
 MIDDLEWARE = [
@@ -41,6 +42,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',  # Locale middleware for i18n
 ]
 
 ROOT_URLCONF = 'project1.urls'
@@ -85,15 +87,32 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Internationalization
+# https://docs.djangoproject.com/en/4.2/topics/i18n/
+
 LANGUAGE_CODE = 'en-us'
+
+LANGUAGES = [
+    ('en', 'English'),
+    ('pt', 'Portuguese'),
+]
+
 TIME_ZONE = 'UTC'
-USE_I18N = True
+
+USE_I18N = True  # Enable internationalization
+
+USE_L10N = True  # Enable localization
+
 USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "mainApp" / "static",]
 
-# Add the following line to specify the redirect URL after login
+# Redirect URLs after login/logout
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+# Locale path
+LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'),)  # Path where Django will store translation files
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

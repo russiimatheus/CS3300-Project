@@ -1,11 +1,11 @@
+{% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AfterBell - Post School Activities</title>
-    {% load static %}
-
     <style>
         body {
             background-color: #f4f4f4; /* Fallback color */
@@ -34,7 +34,7 @@
         }
 
         h1 {
-            font-size: 4.0em; /* Increased font size for the "Post School Activities" title */
+            font-size: 3.6em; /* Increased font size for the "Post School Activities" title */
             color: black; /* Set color of the title to black */
             margin-bottom: 20px; /* Optional: Add some bottom margin for better spacing */
         }
@@ -86,56 +86,59 @@
             z-index: 1;
         }
 
-        .dropdown-content a {
+        .dropdown-content a, .languages-content form button {
             color: black;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
+            background: none;
+            border: none;
+            text-align: left;
+            width: 100%;
         }
 
-        .dropdown-content a:hover, .languages-content a:hover {
+        .dropdown-content a:hover, .languages-content form button:hover {
             background-color: #ddd;
         }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
+        .dropdown:hover .dropdown-content,
         .languages:hover .languages-content {
             display: block;
         }
     </style>
 </head>
-
 <body>
-    <span id="appName">AfterBell</span>
+    <span id="appName">{% trans "AfterBell" %}</span>
 
     <div class="dropdown">
-        <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Options ⮟</button>
+        <button class="dropbtn" aria-haspopup="true" aria-expanded="false">{% trans "Options" %} ⮟</button>
         <div class="dropdown-content" role="menu">
             {% if user.is_authenticated %}
-                <a href="{% url 'logout' %}" role="menuitem">Logout</a>
+                <a href="{% url 'logout' %}" role="menuitem">{% trans "Logout" %}</a>
             {% else %}
-                <a href="{% url 'login' %}" role="menuitem">Login</a>
-                <a href="{% url 'register' %}" role="menuitem">Register</a>
+                <a href="{% url 'login' %}" role="menuitem">{% trans "Login" %}</a>
+                <a href="{% url 'register' %}" role="menuitem">{% trans "Register" %}</a>
             {% endif %}
             <div class="languages">
-                <a href="#" role="menuitem">Languages ⮟</a>
+                <a href="#" role="menuitem">{% trans "Languages" %} ⮟</a>
                 <div class="languages-content" role="menu">
-                    <a href="#" role="menuitem">English</a>
-                    <a href="#" role="menuitem">Portuguese</a>
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ request.path }}">
+                        <button type="submit" name="language" value="en">{% trans "English" %}</button>
+                        <button type="submit" name="language" value="pt">{% trans "Portuguese" %}</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="main-content">
-        <h1>Post School Activities</h1>
-        <button onclick="location.href='{% url 'view_activities' %}'">View Activities</button>
-        <button onclick="location.href='https://iscbrazil.com/about-us/'">Learn More</button>
-        <button onclick="location.href='https://iscbrazil.com/contacts/'">Contact Support</button>
-        <button onclick="location.href='https://iscbrazil.com'">School Website</button>
+        <h1>{% trans "Post School Activities" %}</h1>
+        <button onclick="location.href='{% url 'view_activities' %}'">{% trans "View Activities" %}</button>
+        <button onclick="location.href='https://iscbrazil.com/about-us/'">{% trans "Learn More" %}</button>
+        <button onclick="location.href='https://iscbrazil.com/contacts/'">{% trans "Contact Support" %}</button>
+        <button onclick="location.href='https://iscbrazil.com'">{% trans "School Website" %}</button>
     </div>
 </body>
-
 </html>

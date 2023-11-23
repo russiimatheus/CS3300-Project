@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-22 13:48-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\mainApp\forms.py:11 .\mainApp\templates\view_activities.html:72
+msgid "Name"
+msgstr "Nome"
+
+#: .\mainApp\forms.py:12 .\mainApp\models.py:7
+#: .\mainApp\templates\view_activities.html:73
+msgid "Date"
+msgstr "Data"
+
+#: .\mainApp\forms.py:13 .\mainApp\models.py:8
+#: .\mainApp\templates\view_activities.html:74
+msgid "Time"
+msgstr "Horário"
+
+#: .\mainApp\forms.py:14 .\mainApp\models.py:9
+#: .\mainApp\templates\view_activities.html:75
+msgid "Description"
+msgstr "Descrição"
+
+#: .\mainApp\forms.py:15 .\mainApp\models.py:24
+#: .\mainApp\templates\view_activities.html:76
+msgid "Instructor"
+msgstr "Instrutor"
+
+#: .\mainApp\models.py:6
+msgid "Activity Name"
+msgstr "Nome da Atividade"
+
+#: .\mainApp\models.py:15 .\mainApp\templates\create_activity.html:104
+#: .\mainApp\templates\edit_activities.html:111
+msgid "Matheus"
+msgstr "Matheus"
+
+#: .\mainApp\models.py:16 .\mainApp\templates\create_activity.html:105
+#: .\mainApp\templates\edit_activities.html:112
+msgid "Matias"
+msgstr ""
+
+#: .\mainApp\models.py:17 .\mainApp\templates\create_activity.html:106
+#: .\mainApp\templates\edit_activities.html:113
+msgid "Matheuses"
+msgstr ""
+
+#: .\mainApp\templates\confirm_delete.html:7
+msgid "Confirm Delete"
+msgstr "Confirmar"
+
+#: .\mainApp\templates\confirm_delete.html:60
+msgid "Are you sure you want to delete"
+msgstr "Tem certeza que você quer apagar?"
+
+#: .\mainApp\templates\confirm_delete.html:64
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: .\mainApp\templates\confirm_delete.html:65
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: .\mainApp\templates\create_activity.html:7
+#: .\mainApp\templates\create_activity.html:84
+msgid "Create Activity"
+msgstr "Criar Atividade"
+
+#: .\mainApp\templates\create_activity.html:89
+#: .\mainApp\templates\edit_activities.html:96
+msgid "Activity Name:"
+msgstr "Nome da Atividade"
+
+#: .\mainApp\templates\create_activity.html:92
+#: .\mainApp\templates\edit_activities.html:99
+msgid "Date:"
+msgstr "Data"
+
+#: .\mainApp\templates\create_activity.html:95
+#: .\mainApp\templates\edit_activities.html:102
+msgid "Time:"
+msgstr "Horário"
+
+#: .\mainApp\templates\create_activity.html:98
+#: .\mainApp\templates\edit_activities.html:105
+msgid "Description:"
+msgstr "Descrição"
+
+#: .\mainApp\templates\create_activity.html:101
+#: .\mainApp\templates\edit_activities.html:108
+msgid "Instructor:"
+msgstr "Instrutor"
+
+#: .\mainApp\templates\create_activity.html:109
+#: .\mainApp\templates\view_activities.html:65
+msgid "Create New Activity"
+msgstr "Criar Nova atividade"
+
+#: .\mainApp\templates\edit_activities.html:8
+#: .\mainApp\templates\edit_activities.html:92
+msgid "Edit Activity"
+msgstr "Editar Atividade"
+
+#: .\mainApp\templates\edit_activities.html:116
+msgid "Save Changes"
+msgstr "Salvar Mudanças"
+
+#: .\mainApp\templates\index.html:111
+msgid "AfterBell"
+msgstr ""
+
+#: .\mainApp\templates\index.html:114
+msgid "Options"
+msgstr "Opções"
+
+#: .\mainApp\templates\index.html:117
+msgid "Logout"
+msgstr "Sair"
+
+#: .\mainApp\templates\index.html:119 .\mainApp\templates\login.html:8
+#: .\mainApp\templates\login.html:82
+msgid "Login"
+msgstr "Fazer Login"
+
+#: .\mainApp\templates\index.html:120 .\mainApp\templates\register.html:8
+#: .\mainApp\templates\register.html:67
+msgid "Register"
+msgstr "Registrar"
+
+#: .\mainApp\templates\index.html:123
+msgid "Languages"
+msgstr "Linguagens"
+
+#: .\mainApp\templates\index.html:128
+msgid "English"
+msgstr ""
+
+#: .\mainApp\templates\index.html:129
+msgid "Portuguese"
+msgstr ""
+
+#: .\mainApp\templates\index.html:137
+msgid "Post School Activities"
+msgstr "Atividades pós-escolares"
+
+#: .\mainApp\templates\index.html:138
+#: .\mainApp\templates\view_activities.html:7
+msgid "View Activities"
+msgstr "Ver Atividades"
+
+#: .\mainApp\templates\index.html:139
+msgid "Learn More"
+msgstr "Saiba Mais"
+
+#: .\mainApp\templates\index.html:140
+msgid "Contact Support"
+msgstr "Contate o Suporte"
+
+#: .\mainApp\templates\index.html:141
+msgid "School Website"
+msgstr "Site da Escola"
+
+#: .\mainApp\templates\login.html:80
+msgid "Wrong username or password"
+msgstr "Nome ou senha incorretos"
+
+#: .\mainApp\templates\login.html:83
+msgid "Don't have an account?"
+msgstr "Não tem uma conta?"
+
+#: .\mainApp\templates\login.html:83
+msgid "Register here"
+msgstr "Registre aqui"
+
+#: .\mainApp\templates\view_activities.html:61
+msgid "Activities List"
+msgstr "Lista de Atividades"
+
+#: .\mainApp\templates\view_activities.html:77
+msgid "Actions"
+msgstr "Ações"
+
+#: .\mainApp\templates\view_activities.html:90
+msgid "Edit"
+msgstr "Editar"
+
+#: .\mainApp\templates\view_activities.html:91
+msgid "Delete"
+msgstr "Deletar"
+
+#: .\mainApp\templates\view_activities.html:93
+msgid "View Only"
+msgstr "Somente Visualizar"
+
+#: .\mainApp\views.py:29
+msgid "Activity created successfully."
+msgstr "Atividade criada com sucesso"
+
+#: .\mainApp\views.py:44
+msgid "Activity updated successfully."
+msgstr "Atividade atualizada com sucesso"
+
+#: .\mainApp\views.py:57
+msgid "Activity deleted successfully."
+msgstr "Atividade deletada com sucesso"
+
+#: .\mainApp\views.py:67
+msgid "Registration successful. You can now log in."
+msgstr "Registro completo. Voce pode logar agora"
+
+#: .\mainApp\templates\user_registered_activities.html:58
+msgid "Welcome"
+msgstr "Bem-vindo"
+
+#: .\mainApp\templates\user_registered_activities.html:59
+msgid "Here are the activities you are registered for:"
+msgstr "Aqui estão as atividades para as quais você está registrado:"
+
+
+
+#: .\mainApp\templates\user_registered_activities.html:85
+msgid "No activities registered."
+msgstr "Nenhuma atividade registrada."

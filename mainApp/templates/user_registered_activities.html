@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% trans "View Activities" %}</title>
+    <title>{% trans "Your Registered Activities" %}</title>
     <style>
         body {
             background-image: url('https://i.pinimg.com/736x/6a/73/02/6a730250f0674770954cbb9778b9f4f7.jpg');
@@ -13,17 +13,10 @@
             font-size: 20px;
         }
 
-        .center-button {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
         button {
             background-color: #3498db;
             color: white;
             padding: 15px 25px;
-            margin: 10px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -62,13 +55,8 @@
     </style>
 </head>
 <body>
-    <h1>{% trans "Activities List" %}</h1>
-
-    {% if user.is_authenticated %}
-        <div class="center-button">
-            <button onclick="location.href='{% url 'create_activity' %}'">{% trans "Create New Activity" %}</button>
-        </div>
-    {% endif %}
+    <h1>{% trans "Welcome" %} {{ request.user.username }}</h1>
+    <p>{% trans "Here are the activities you are registered for:" %}</p>
 
     <table>
         <thead>
@@ -78,29 +66,23 @@
                 <th>{% trans "Time" %}</th>
                 <th>{% trans "Description" %}</th>
                 <th>{% trans "Instructor" %}</th>
-                <th>{% trans "Actions" %}</th>
+                <th>{% trans "Action" %}</th>
             </tr>
         </thead>
         <tbody>
-            {% for activity in activities %}
+            {% for registration in registered_activities %}
                 <tr>
-                    <td>{{ activity.name }}</td>
-                    <td>{{ activity.date }}</td>
-                    <td>{{ activity.time }}</td>
-                    <td>{{ activity.description }}</td>
-                    <td>{{ activity.instructor }}</td>
+                    <td>{{ registration.activity.name }}</td>
+                    <td>{{ registration.activity.date }}</td>
+                    <td>{{ registration.activity.time }}</td>
+                    <td>{{ registration.activity.description }}</td>
+                    <td>{{ registration.activity.instructor }}</td>
                     <td>
-                        {% if user.is_authenticated %}
-                            <div class="action-links">
-                                <a href="{% url 'edit_activity' activity.id %}">{% trans "Edit" %}</a> |  
-                                <a href="{% url 'delete_activity' activity.id %}">{% trans "Delete" %}</a> |
-                                <a href="{% url 'register_activity' activity.id %}">{% trans "Register" %}</a>
-                            </div>
-                        {% else %}
-                            {% trans "View Only" %}
-                        {% endif %}
+                        <a href="{% url 'unregister_activity' registration.activity.id %}">{% trans "Unregister" %}</a>
                     </td>
                 </tr>
+            {% empty %}
+                <tr><td colspan="6">{% trans "No activities registered." %}</td></tr>
             {% endfor %}
         </tbody>
     </table>
