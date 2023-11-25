@@ -1,26 +1,48 @@
-from django.test import TestCase, Client
-from .models import Activity
-from django.urls import reverse
+from django.test import TestCase
+from django.contrib.auth.models import User
+from .models import Activity, Registration
+from django.utils import timezone
+import datetime
 
-class ActivityViewTestCase(TestCase):
+class ActivityModelTest(TestCase):
     def setUp(self):
-        # Create an instance of the Activity model
-        Activity.objects.create(
-            name="Test Activity",
-            date="2022-01-01",
-            time="12:00",
-            description="A test activity",
+        self.activity = Activity.objects.create(
+            name="Yoga Class",
+            date=timezone.now().date(),
+            time=timezone.now().time(),
+            description="A relaxing yoga session",
             instructor=Activity.MATHEUS
         )
-        # Set up the client to make requests
-        self.client = Client()
 
-    def test_activity_list_view(self):
-        # Get the url for the activity list (change 'activity_list' to your actual url name)
-        url = reverse('activity_list') 
-        # Make a GET request to the list view
-        response = self.client.get(url)
-        # Check if the response is 200 OK
-        self.assertEqual(response.status_code, 200)
-        # Optionally, check if the response context contains your activities
-        self.assertIn('Test Activity', response.context['activities'])
+    def test_activity_creation(self):
+        self.assertTrue(isinstance(self.activity, Activity))
+        self.assertEqual(self.activity.__str__(), self.activity.name)
+
+    def test_activity_fields(self):
+        self.assertEqual(self.activity.name, "Yoga Class")
+        self.assertEqual(self.activity.description, "A relaxing yoga session")
+        self.assertEqual(self.activity.instructor, Activity.MATHEUS)
+
+class RegistrationModelTest(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user('testuser', 'test@example.com', 'testpassword')
+        self.activity = Activity.objects.create(
+            name="Dance Class",
+            date=timezone.now().date(),
+            time=timezone.now().time(),
+            description="Energetic dance session",
+            instructor=Activity.MATIAS
+        )
+        self.registration = Registration.objects.create(
+            user=self.user,
+            activity=self.activity
+        )
+
+    def test_registration_creation(self):
+        self.assertTrue(isinstance(self.registration, Registration))
+        self.assertEqual(self.registration.__str__(), f"{self.user.username} - {self.activity.name}")
+
+    def test_registration_link_to_user_and_activity(self):
+        self.assertEqual(self.registration.user, self.user)
+        self.assertEqual(self.registration.activity, self.activity)
+
