@@ -21,7 +21,6 @@ class UserRegistrationTest(LiveServerTestCase):
         self.selenium.get(f'{self.live_server_url}/register/')
         time.sleep(2)
 
-        # Adjust these field names if different in your form
         username_input = self.selenium.find_element(By.NAME, 'username')
         password_input = self.selenium.find_element(By.NAME, 'password1')
         password_repeat_input = self.selenium.find_element(By.NAME, 'password2')
@@ -31,19 +30,18 @@ class UserRegistrationTest(LiveServerTestCase):
         password_repeat_input.send_keys('ValidPassword123')
         time.sleep(1)
 
-        # Submit the form
+        
         self.selenium.find_element(By.CSS_SELECTOR, 'form button').click()
         time.sleep(3)
 
-        # Check if redirected to the login page after registration
         current_url = self.selenium.current_url
-        self.assertIn('/login/', current_url)  # Adjust the URL path as needed
+        self.assertIn('/login/', current_url)  
 
     def test_user_registration_unsuccessful(self):
         self.selenium.get(f'{self.live_server_url}/register/')
         time.sleep(2)
 
-        # Fill out the form with incomplete data
+       
         username_input = self.selenium.find_element(By.NAME, 'username')
         password_input = self.selenium.find_element(By.NAME, 'password1')
         password_repeat_input = self.selenium.find_element(By.NAME, 'password2')
@@ -53,10 +51,9 @@ class UserRegistrationTest(LiveServerTestCase):
         password_repeat_input.send_keys('pwd')
         time.sleep(1)
 
-        # Submit the form
+        
         self.selenium.find_element(By.CSS_SELECTOR, 'form button').click()
         time.sleep(3)
 
-        # Check for the presence of error messages
         errors = self.selenium.find_elements(By.CLASS_NAME, 'error')
         self.assertTrue(len(errors) > 0)

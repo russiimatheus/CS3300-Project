@@ -13,7 +13,7 @@ class UserLoginTest(LiveServerTestCase):
         cls.selenium = webdriver.Chrome()
         cls.selenium.implicitly_wait(10)
 
-        # Create a test user
+        
         User.objects.create_user(username='Matheus', password='Mamae30613004!')
 
     @classmethod
@@ -36,10 +36,6 @@ class UserLoginTest(LiveServerTestCase):
         password_input.send_keys(Keys.RETURN)
         time.sleep(3)
 
-        # Replace this with an appropriate condition for your application
-        # Example: Check if a certain element (like 'logout' link, 'profile' button, etc.) is present
-        # self.assertTrue(self.selenium.find_element(By.ID, 'unique-element-after-login'))
-
     def test_user_login_with_incorrect_password(self):
         self.selenium.get(f'{self.live_server_url}/login/')
         time.sleep(2)
@@ -55,6 +51,6 @@ class UserLoginTest(LiveServerTestCase):
         password_input.send_keys(Keys.RETURN)
         time.sleep(3)
 
-        # Check if the user is still on the login page, indicating login failure
+       
         current_url = self.selenium.current_url
         self.assertIn('/login/', current_url)

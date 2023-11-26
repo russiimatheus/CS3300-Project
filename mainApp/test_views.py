@@ -5,7 +5,7 @@ from .models import Activity
 
 class ViewTests(TestCase):
     def setUp(self):
-        # Create a test user and activity
+        
         self.user = User.objects.create_user(username='testuser', password='testpassword')
         self.activity = Activity.objects.create(
             name="Sample Activity",
@@ -45,4 +45,4 @@ class ViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'register.html')
 
-    # ... (other tests as necessary) ...
+  
